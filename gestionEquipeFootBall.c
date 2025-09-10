@@ -83,15 +83,16 @@ void afficherJoueurPsote(struct joueur jr[], int nombreJoueurs){
     char rechercher[100] ;
     printf("Entrez le poste du joueur(s) pour afficher : ");
     scanf("%s",rechercher);
+    printf("----------------------------------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-12s | %-5s | %-5s |\n",
+           "ID", "Nom & Prénom", "Maillot", "Poste", "Age", "Buts");
+    printf("----------------------------------------------------------------------------------------------\n");
 
     for (int i = 0; i< nombreJoueurs; i++) {
         if (strcmp(jr[i].poste, rechercher) == 0) {
-            printf("L' identifiant du joueur          : %d \n", jr[i].id);
-            printf("Le nom et prenom du joueur        : %s \n", jr[i].nomPrenom);
-            printf("le numero de Maillot du joueur    : %d \n", jr[i].numeroMaillot);
-            printf("le post du joueur                 : %s \n", jr[i].poste);
-            printf("l'age du joueur                   : %d \n", jr[i].age);
-            printf("les buts marqués le joueur        : %d \n", jr[i].buts);
+            printf("| %-3d | %-25s | %-10d | %-12s | %-5d | %-5d |\n",
+               jr[i].id, jr[i].nomPrenom, jr[i].numeroMaillot,
+               jr[i].poste, jr[i].age, jr[i].buts);
             indice = 1;
         
         }
@@ -110,13 +111,15 @@ void afficherJoueur(struct joueur j[],int nombreJoueurs){
         printf("Aucun Joueur disponible.\n");
         return;
     }
+    printf("----------------------------------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-12s | %-5s | %-5s |\n",
+           "ID", "Nom & Prénom", "Maillot", "Poste", "Age", "Buts");
+    printf("----------------------------------------------------------------------------------------------\n");
+
     for (int i =0; i<nombreJoueurs; i++) {
-        printf("L' identifiant du joueur          : %d \n", j[i].id);
-        printf("Le nom et prenom du joueur        : %s \n", j[i].nomPrenom);
-        printf("le numero de Maillot du joueur    : %d \n", j[i].numeroMaillot);
-        printf("le post du joueur                 : %s \n", j[i].poste);
-        printf("l'age du joueur                   : %d \n", j[i].age);
-        printf("les buts marqués le joueur        : %d \n", j[i].buts);
+        printf("| %-3d | %-25s | %-10d | %-12s | %-5d | %-5d |\n",
+               j[i].id, j[i].nomPrenom, j[i].numeroMaillot,
+               j[i].poste, j[i].age, j[i].buts);
         
     }
    
@@ -129,15 +132,16 @@ void rechecherIdJoueur(struct joueur jr[], int nombreJoueurs){
     printf("Entrez l'Identifiant du joueur pour rechecher : ");
     scanf("%d",&rechercher);
     getchar();
+    printf("----------------------------------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-12s | %-5s | %-5s |\n",
+           "ID", "Nom & Prénom", "Maillot", "Poste", "Age", "Buts");
+    printf("----------------------------------------------------------------------------------------------\n");
 
     for (int i = 0; i< nombreJoueurs; i++) {
         if (jr[i].id==rechercher) {
-            printf("L' identifiant du joueur          : %d \n", jr[i].id);
-            printf("Le nom et prenom du joueur        : %s \n", jr[i].nomPrenom);
-            printf("le numero de Maillot du joueur    : %d \n", jr[i].numeroMaillot);
-            printf("le post du joueur                 : %s \n", jr[i].poste);
-            printf("l'age du joueur                   : %d \n", jr[i].age);
-            printf("les buts marqués le joueur        : %d \n", jr[i].buts);
+            printf("| %-3d | %-25s | %-10d | %-12s | %-5d | %-5d |\n",
+               jr[i].id, jr[i].nomPrenom, jr[i].numeroMaillot,
+               jr[i].poste, jr[i].age, jr[i].buts);
             indice = 1;
         }
     
@@ -155,15 +159,16 @@ void rechecherNomJoueur(struct joueur jr[], int nombreJoueurs){
     char rechercher[100] ;
     printf("Entrez le nom du joueur pour rechecher : ");
     scanf("%[^\n]",rechercher);
+    printf("----------------------------------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-12s | %-5s | %-5s |\n",
+           "ID", "Nom & Prénom", "Maillot", "Poste", "Age", "Buts");
+    printf("----------------------------------------------------------------------------------------------\n");
 
     for (int i = 0; i< nombreJoueurs; i++) {
         if (strcmp(jr[i].nomPrenom, rechercher) == 0) {
-            printf("L' identifiant du joueur          : %d \n", jr[i].id);
-            printf("Le nom et prenom du joueur        : %s \n", jr[i].nomPrenom);
-            printf("le numero de Maillot du joueur    : %d \n", jr[i].numeroMaillot);
-            printf("le post du joueur                 : %s \n", jr[i].poste);
-            printf("l'age du joueur                   : %d \n", jr[i].age);
-            printf("les buts marqués le joueur        : %d \n", jr[i].buts);
+            printf("| %-3d | %-25s | %-10d | %-12s | %-5d | %-5d |\n",
+               jr[i].id, jr[i].nomPrenom, jr[i].numeroMaillot,
+               jr[i].poste, jr[i].age, jr[i].buts);
             indice = 1;
         
         }
@@ -289,14 +294,16 @@ void afficherButeMarqueJoueur(struct joueur jr[], int nombreJoueurs){
     printf("entrez le nombre pour affiche les joueurs ayant marqué plus de nombre buts : ");
     scanf("%d",&x);
     getchar();
+    printf("----------------------------------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-12s | %-5s | %-5s |\n",
+           "ID", "Nom & Prénom", "Maillot", "Poste", "Age", "Buts");
+    printf("----------------------------------------------------------------------------------------------\n");
+
     for (int i = 0; i< nombreJoueurs; i++) {
         if (jr[i].buts>=x) {
-            printf("L' identifiant du joueur          : %d \n", jr[i].id);
-            printf("Le nom et prenom du joueur        : %s \n", jr[i].nomPrenom);
-            printf("le numero de Maillot du joueur    : %d \n", jr[i].numeroMaillot);
-            printf("le post du joueur                 : %s \n", jr[i].poste);
-            printf("l'age du joueur                   : %d \n", jr[i].age);
-            printf("les buts marqués le joueur        : %d \n", jr[i].buts);
+            printf("| %-3d | %-25s | %-10d | %-12s | %-5d | %-5d |\n",
+               jr[i].id, jr[i].nomPrenom, jr[i].numeroMaillot,
+               jr[i].poste, jr[i].age, jr[i].buts);
             indice=1;
         }
     
@@ -317,12 +324,14 @@ void afficherMeilleurButeur(struct joueur jr[],int nombreJoueurs){
         }
     
     }
-    printf("L' identifiant du joueur          : %d \n", jr[position].id);
-    printf("Le nom et prenom du joueur        : %s \n", jr[position].nomPrenom);
-    printf("le numero de Maillot du joueur    : %d \n", jr[position].numeroMaillot);
-    printf("le post du joueur                 : %s \n", jr[position].poste);
-    printf("l'age du joueur                   : %d \n", jr[position].age);
-    printf("les buts marqués le joueur        : %d \n", jr[position].buts);
+    printf("----------------------------------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-12s | %-5s | %-5s |\n",
+           "ID", "Nom & Prénom", "Maillot", "Poste", "Age", "Buts");
+    printf("----------------------------------------------------------------------------------------------\n");
+
+    printf("| %-3d | %-25s | %-10d | %-12s | %-5d | %-5d |\n",
+               jr[position].id, jr[position].nomPrenom, jr[position].numeroMaillot,
+               jr[position].poste, jr[position].age, jr[position].buts);
     
 
 }
@@ -336,13 +345,14 @@ void afficherPlusJeune(struct joueur jr[],int nombreJoueurs){
         }
     
     }
-    printf("L' identifiant du joueur          : %d \n", jr[position].id);
-    printf("Le nom et prenom du joueur        : %s \n", jr[position].nomPrenom);
-    printf("le numero de Maillot du joueur    : %d \n", jr[position].numeroMaillot);
-    printf("le post du joueur                 : %s \n", jr[position].poste);
-    printf("l'age du joueur                   : %d \n", jr[position].age);
-    printf("les buts marqués le joueur        : %d \n", jr[position].buts);
-    
+    printf("----------------------------------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-12s | %-5s | %-5s |\n",
+           "ID", "Nom & Prénom", "Maillot", "Poste", "Age", "Buts");
+    printf("----------------------------------------------------------------------------------------------\n");
+
+    printf("| %-3d | %-25s | %-10d | %-12s | %-5d | %-5d |\n",
+               jr[position].id, jr[position].nomPrenom, jr[position].numeroMaillot,
+               jr[position].poste, jr[position].age, jr[position].buts);
 
 }
 void afficherPlusAge(struct joueur jr[],int nombreJoueurs){
@@ -356,19 +366,25 @@ void afficherPlusAge(struct joueur jr[],int nombreJoueurs){
     
     }
 
-    printf("L' identifiant du joueur          : %d \n", jr[position].id);
-    printf("Le nom et prenom du joueur        : %s \n", jr[position].nomPrenom);
-    printf("le numero de Maillot du joueur    : %d \n", jr[position].numeroMaillot);
-    printf("le post du joueur                 : %s \n", jr[position].poste);
-    printf("l'age du joueur                   : %d \n", jr[position].age);
-    printf("les buts marqués le joueur        : %d \n", jr[position].buts);
-    
+    printf("----------------------------------------------------------------------------------------------\n");
+    printf("| %-3s | %-25s | %-10s | %-12s | %-5s | %-5s |\n",
+           "ID", "Nom & Prénom", "Maillot", "Poste", "Age", "Buts");
+    printf("----------------------------------------------------------------------------------------------\n");
+
+    printf("| %-3d | %-25s | %-10d | %-12s | %-5d | %-5d |\n",
+               jr[position].id, jr[position].nomPrenom, jr[position].numeroMaillot,
+               jr[position].poste, jr[position].age, jr[position].buts);
 
 }
 
 int main(){
-    int nombreJoueurs=10;
-    struct joueur jr[MAX];
+    int nombreJoueurs=4;
+    struct joueur jr[MAX]= {
+        {1, "Yassine Bounou", 1, "gardien", 34, 0},
+        {2, "Achraf Hakimi", 2, "defenseur", 26, 20},
+        {3, "Hakim Ziyech", 7, "milieu", 31, 50},
+        {4, "Youssef En-Nesyri", 11, "attaquant", 28, 120}
+    };
     int choix,sousChoix;
 
     menu:{
