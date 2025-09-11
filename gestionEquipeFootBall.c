@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include <stdbool.h>
 
 #define MAX 100
 
@@ -18,7 +17,7 @@ struct joueur{
     char poste[20];
     int age;
     int buts;
-    struct Date inscription; 
+    struct Date inscription;
 
 };
 
@@ -28,7 +27,7 @@ void remplirDateSysteme(struct joueur *jr) {
 
     jr->inscription.jour  = tm.tm_mday;
     jr->inscription.mois  = tm.tm_mon + 1;              
-    jr->inscription.annee = tm.tm_year + 1900;
+    jr->inscription.annee = tm.tm_year + 1900 ;
 }
 
 
@@ -71,7 +70,7 @@ int ajouterJoueur(struct joueur j[],int nombreJoueurs){
 
 }
 
-void triBulleJour(struct joueur jr[],int nombreJoueurs ){
+void triBulleJoueur(struct joueur jr[],int nombreJoueurs ){
     struct joueur tmp;
     for (int i=0; i<nombreJoueurs -1 ; i++) {
         for (int j=0; j<nombreJoueurs-i-1; j++) {
@@ -355,14 +354,14 @@ int main(){
             printf("1. Afficher les joueurs tri par ordre alphabétique.\n");
             printf("2. Afficher les joueurs tri par âge.\n");
             printf("3. Afficher les joueurs par poste.\n");
-            printf("4. retour au menu principale.\n");
+            printf("0. retour au menu principale.\n");
         }
         printf("Votre sous choix : ");
         scanf("%d", &sousChoix);
         getchar();
         switch (sousChoix) {
             case 1:
-                triBulleJour(jr, nombreJoueurs);
+                triBulleJoueur(jr, nombreJoueurs);
                 afficherJoueur(jr, nombreJoueurs);
                 goto menu1;
             break;
@@ -372,10 +371,12 @@ int main(){
                 goto menu1;
             break;
             case 3:
+                
                 afficherJoueurPsote(jr, nombreJoueurs);
+                triBulleJoueur(jr, nombreJoueurs);
                 goto menu1;
             break;
-            case 4:
+            case 0:
                 goto menu;
             break;
             default:
@@ -390,7 +391,7 @@ int main(){
             printf("\n=== Sous Menu ===\n");
             printf("1. Rechercher un joueur par Identifiant.\n");
             printf("2. Rechercher un joueur par Nom.\n");
-            printf("3. retour au menu principale.\n");
+            printf("0. retour au menu principale.\n");
         }
         printf("Votre sous choix : ");
         scanf("%d", &sousChoix);
@@ -404,7 +405,7 @@ int main(){
                 afficherJoueurNom(jr, nombreJoueurs);
                 goto menu2;
             break;
-            case 3:
+            case 0:
                 goto menu;
             break;
             
@@ -422,7 +423,7 @@ int main(){
             printf("1. Modifier le poste d'un joueur.\n");
             printf("2. Modifier l'age d'un joueur.\n");
             printf("3. Modifier le nombre de buts marqués par un joueur.\n");
-            printf("4. retour au menu principale.\n");
+            printf("0. retour au menu principale.\n");
         }
         printf("Votre sous choix : ");
         scanf("%d", &sousChoix);
@@ -440,7 +441,7 @@ int main(){
                 modifierJoueurButs(jr, nombreJoueurs);
                 goto menu3;
             break;
-            case 4:
+            case 0:
                 goto menu;
             break;
             default:
@@ -462,7 +463,7 @@ int main(){
             printf("3. Afficher les joueurs ayant marqué plus de X buts.\n");
             printf("4. Afficher le meilleur buteur.\n");
             printf("5. Afficher le joueur le plus jeune et le plus age.\n");
-            printf("6. retour au menu principale.\n");
+            printf("0. retour au menu principale.\n");
         }
         printf("Votre sous choix : ");
         scanf("%d", &sousChoix);
@@ -493,7 +494,7 @@ int main(){
                 
                 goto menu4;
             break;
-            case 6:
+            case 0:
                 goto menu;
             break;
             default:
