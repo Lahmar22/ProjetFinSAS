@@ -113,7 +113,7 @@ void afficherJoueurPsote(struct joueur jr[], int nombreJoueurs){
     int indice =0;
     
     char rechercher[100] ;
-    printf("Entrez le poste du joueur(s) pour afficher : ");
+    printf("Entrez le poste du joueur(s) pour afficher ( gardien, defenseur, milieu, attaquant ) : ");
     scanf("%s",rechercher);
     afficherEntete();
     for (int i = 0; i< nombreJoueurs; i++) {
@@ -207,7 +207,7 @@ void afficherJoueurNom(struct joueur j[],int nombreJoueurs){
 
 void modifierJoueurPoste(struct joueur jr[], int nombreJoueurs){
     int position = rechecherNomJoueur(jr, nombreJoueurs);
-    printf("Entrez Nouveau poste du joueur : ");
+    printf("Entrez Nouveau poste du joueur ( gardien, defenseur, milieu, attaquant ) : ");
     scanf("%s",jr[position].poste);
 
 }
