@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-#include <stdbool.h>
 
 #define MAX 100
 
@@ -183,6 +182,7 @@ int rechecherNomJoueur(struct joueur jr[], int nombreJoueurs){
     char rechercher[100] ;
     printf("Entrez le nom du joueur pour rechecher : ");
     scanf("%[^\n]",rechercher);
+
     for (int i = 0; i< nombreJoueurs; i++) {
         if (strcmp(jr[i].nomPrenom, rechercher) == 0) {
             position = i;
@@ -227,24 +227,15 @@ void modifierJoueurButs(struct joueur jr[], int nombreJoueurs){
 }
 
 int supprimerJoueur(struct joueur jr[],int nombreJoueurs){
-    int isvalid;
+    
     int position = rechecherIdJoueur(jr, nombreJoueurs);
-    printf("Voulez-vous vraiment supprimer ce joueur : 1 pour Oui, 2 pour No : ");
-    scanf("%d",&isvalid);
-    if (isvalid==1) {
-        for (int j = position ; j < nombreJoueurs - 1; j++) {
-            jr[j] = jr[j + 1];
-        }
-        nombreJoueurs--;
-        printf("Joueur supprime avec succes \n");
-    
-    }else if (isvalid==2) {
-        printf("Suppression annulee.\n");
-
-    }else {
-        printf("svp entresz 1 ou 2 \n");
-    
+        
+    for (int j = position ; j < nombreJoueurs - 1; j++) {
+        jr[j] = jr[j + 1];
     }
+    nombreJoueurs--;
+    printf("Joueur supprime avec succes \n");
+    
     return nombreJoueurs;
 
 }
@@ -326,6 +317,12 @@ void afficherPlusAge(struct joueur jr[],int nombreJoueurs){
 int main(){
     int nombreJoueurs=0;
     struct joueur jr[MAX];
+    // struct joueur jr[MAX]= {
+    //     {1, "Yassine Bounou", 1, "gardien", 34, 0,jr[0].inscription = remplirDateSysteme()},
+    //     {2, "Achraf Hakimi", 2, "defenseur", 26, 20},
+    //     {3, "Hakim Ziyech", 7, "milieu", 31, 50},
+    //     {4, "Youssef En-Nesyri", 11, "attaquant", 28, 120}
+    // };
     int choix,sousChoix;
 
     menu:{
