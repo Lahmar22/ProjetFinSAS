@@ -267,7 +267,7 @@ void afficherButeMarqueJoueur(struct joueur jr[], int nombreJoueurs){
     afficherEntete();
     for (int i = 0; i< nombreJoueurs; i++) {
         if (jr[i].buts>=x) {
-             afficherUnJoueur(jr[i]);
+            afficherUnJoueur(jr[i]);
             indice=1;
         }
     
@@ -371,9 +371,9 @@ int main(){
                 goto menu1;
             break;
             case 3:
-                
-                afficherJoueurPsote(jr, nombreJoueurs);
                 triBulleJoueur(jr, nombreJoueurs);
+                afficherJoueurPsote(jr, nombreJoueurs);
+                
                 goto menu1;
             break;
             case 0:
